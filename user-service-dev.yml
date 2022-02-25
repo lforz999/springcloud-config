@@ -1,0 +1,26 @@
+server:
+  port: ${port:8080}
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/test1
+    username: root
+    password: 123456
+  application:
+    name: user-service
+
+mybatis:
+  type-aliases-package: com.bus.entity
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:10086/eureka,http://localhost:10087/eureka
+  instance:
+    ip-address: 127.0.0.1
+    prefer-ip-address: true 
+    lease-renewal-interval-in-seconds: 10
+    lease-expiration-duration-in-seconds: 15
